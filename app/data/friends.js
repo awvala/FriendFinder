@@ -1,12 +1,12 @@
 var friendsArray = [
     {
         name: "George of the Jungle",
-        photo: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fdisney%2Fimages%2F6%2F64%2FGeorge_of_the_Jungle_Waving.jpg%2Frevision%2Flatest%3Fcb%3D20120406072510&imgrefurl=http%3A%2F%2Fdisney.wikia.com%2Fwiki%2FFile%3AGeorge_of_the_Jungle_Waving.jpg&docid=9kD5G8HVWL6XMM&tbnid=Yv65F0xq7Lp6OM%3A&vet=10ahUKEwj1k_XL-9TcAhVIj1QKHfw3BqMQMwj3ASgFMAU..i&w=399&h=523&bih=582&biw=1279&q=george%20of%20the%20jungle&ved=0ahUKEwj1k_XL-9TcAhVIj1QKHfw3BqMQMwj3ASgFMAU&iact=mrc&uact=8",
+        photo: "https://vignette.wikia.nocookie.net/disney/images/6/64/George_of_the_Jungle_Waving.jpg/revision/latest?cb=20120406072510",
         scores: [1,3,2,4,5,4,4,1,3,2]
     },
     {
         name: "Buffy Summers",
-        photo: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi8y5rXqNfcAhVp64MKHZyYAXUQjRx6BAgBEAU&url=http%3A%2F%2Fwarner-bros-characters.wikia.com%2Fwiki%2FBuffy_Summers&psig=AOvVaw1f1ttGv1bV9zzrihTtDkuC&ust=1533606648131248",
+        photo: "https://static.giantbomb.com/uploads/scale_small/3/39164/2865332-2722260477-buffy.jpg",
         scores: [2,5,3,2,5,1,3,2,5]
     },
     {
