@@ -3,36 +3,39 @@ var friends = require('../data/friends.js');
 
 // ROUTING
 //  API GET request will display friends when the user visits the page.
-module.exports = function(app){
-	app.get('/api/friends', function(req, res){
-		res.json(friends);
-	});
+module.exports = function (app) {
+  app.get('/api/friends', function (req, res) {
+    res.json(friends);
+  });
 
   // API POST request submit survey data into our friends.js friendsArray.
-  app.post('/api/friends', function(req, res) {
+  app.post('/api/friends', function (req, res) {
+
+    var bestMatch = {
+      name: "",
+      photo: "",
+      friendDifference: 1000
+    };
+
     var userData = req.body;
-    var userAnswers = userData.scores;
+    var userScores = userData.scores;
+    var totalDifference = 0;
 
-    // calculate friend match
-    var friendName = '';
-    var friendImg = '';
-    var totalDiff = 100;
+    for (var i = 0; i < friends.length; i++) {
+      totalDifference = 0;
 
-    for (var i = 0; i < friends.lengh; i++) {
-      
-      var diff = 0;
-      for (j = 0; j < userAnswers.lengh; j++) {
-        diff += Math.abs(friends[i].scores[j] - userAnswers[j]);
+      for (var j = 0; j < friends[i].scores; j++) {
+        totalDifference += Math.abs(friends[i].scores[j] - userScores[j]);
       }
-      
+
       // if lowest mathematical difference, update friend variables
-      if (diff < totalDiff) {
-        totalDiff = diff;
-        friendName = friends[i].name;
-        friendImg = friends[i].photo;
+      if (totalDifference <= bestMatch.friendDifference) {
+        bestMatch.name = friends[i].name;
+        bestMatch.photo = friends[i].photo;
+        bestMatch.friendDifference = totalDifference;
       }
     }
     friends.push(userData);
-    res.json({status: 'ok', name: friendName, photo: friendImg});
+    res.json({ status: 'ok', name: bestMatch.name, photo: bestMatch.photo });
   });
 };
