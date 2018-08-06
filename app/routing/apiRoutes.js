@@ -36,6 +36,6 @@ module.exports = function (app) {
       }
     }
     friendsData.push(userData);
-    res.json({status: 'ok', friendName: friendName, friendImg: friendImg});
+    res.json({status: 'ok', name: friendName, photo: friendImg});
   });
 };
