@@ -209,7 +209,7 @@
         </div>
         <div class="modal-body">
           <h2 id="match-name"></h2>
-          <img id="match-img" src="" alt="An image of your best nerd friend!" width="350">
+          <img id="match-img" src="" alt="Meet your new friend!" width="350">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Beam me out!</button>
@@ -282,7 +282,7 @@
             $("#q10").val()
           ]
         };
-
+        console.log("here1");
         // AJAX post the data to the friends API.
         $.post("/api/friends", friendData, function (data) {
 
