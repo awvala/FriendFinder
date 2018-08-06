@@ -1,9 +1,7 @@
 // Dependencies
-var path = require('path');
 var friendsData = require("../data/friends.js");
 
 // ROUTING
-
 //  API GET request will display friendsData when the usser visits the page.
 module.exports = function (app) {
   app.get("/api/friends", function (req, res) {
@@ -35,7 +33,7 @@ module.exports = function (app) {
         friendImg = friendsData[i].photo;
       }
     }
-    friends.push(userData);
+    friendsData.push(userData);
     res.json({status: 'ok', name: friendName, photo: friendImg});
   });
 };
