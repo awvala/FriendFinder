@@ -11,7 +11,7 @@ module.exports = function (app) {
   });
 
   // API POST request submit survey data into our friends.js friendsArray.
-  app.post("/data/friends", function (req, res) {
+  app.post("../data/friends", function (req, res) {
     console.log(here);
     var userData = req.body;
     var userAnswers = userData.scores;
