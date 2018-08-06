@@ -15,7 +15,6 @@ module.exports = function (app) {
     console.log(here);
     var userData = req.body;
     var userAnswers = userData.scores;
-    console.log(userAnswers);
 
     // calculate friend match
     var friendName = '';
@@ -36,7 +35,6 @@ module.exports = function (app) {
         friendImg = friendsData[i].photo;
       }
     }
-    console.log(friendName);
     friendsData.push(userData);
     res.json({status: 'ok', name: friendName, photo: friendImg});
   });
