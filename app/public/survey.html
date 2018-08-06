@@ -209,7 +209,7 @@
         </div>
         <div class="modal-body">
           <h2 id="match-name"></h2>
-          <img id="match-img" src="http://via.placeholder.com/350x150" alt="An image of your best nerd friend!" width="350">
+          <img id="match-img" src="" alt="An image of your best nerd friend!">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Beam me out!</button>
@@ -287,6 +287,8 @@
         $.post("../data/friends.js", friendData, function (data) {
 
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+          console.log(data.name);
+          console.log(data.photo);
           $("#match-name").text(data.name);
           $("#match-img").attr("src", data.photo);
 

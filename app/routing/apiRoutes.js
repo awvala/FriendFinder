@@ -14,7 +14,6 @@ module.exports = function (app) {
   app.post("/data/friends.js", function (req, res) {
     var userData = req.body;
     var userAnswers = userData.scores;
-    console.log(userAnswers);
 
     // calculate friend match
     var friendName = '';
@@ -22,12 +21,12 @@ module.exports = function (app) {
     var totalDiff = 100;
 
     for (var i = 0; i < friendsData.lengh; i++) {
-      console.log("friendData = " + json.stringify(friendsData[i]));
+      
       var diff = 0;
       for (j = 0; j < userAnswers.lengh; j++) {
         diff += Math.abs(friendsData[i].scores[j] - userAnswers[j]);
       }
-      console.log('diff = ' + diff);
+      
       // if lowest mathematical difference, update friend variables
       if (diff < totalDiff) {
         totalDiff = diff;
