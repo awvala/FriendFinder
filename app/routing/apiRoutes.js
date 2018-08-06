@@ -5,14 +5,37 @@ var friendsData = require("../data/friends");
 // ROUTING
 
 //  API GET request will display friendsData when the usser visits the page.
-module.exports = function(app) {
-    app.get("/data/friends", function(req, res) {
-     res.json(friendsData);   
-   });
+module.exports = function (app) {
+  app.get("/data/friends", function (req, res) {
+    res.json(friendsData);
+  });
 
-// API POST request submit survey data into our friends.js friendsArray.
-   app.post("/data/friends", function(req, res) {
-     friendsData.push(req.body);
-// Insert logic to find best friend match.
-   });
-}
+  // API POST request submit survey data into our friends.js friendsArray.
+  app.post("/data/friends", function (req, res) {
+    var userData = req.body;
+    var userAnswers = userData.scores;
+    console.log(userAnswers);
+
+    // calculate friend match
+    var friendName = '';
+    var friendImg = '';
+    var totalDiff = 100;
+
+    for (var i = 0; i < friendsData.lengh; i++) {
+      console.log("friendData = " + json.stringify(friendsData[i]));
+      var diff = 0;
+      for (j = 0; j < userAnswers.lengh; j++) {
+        diff += Math.abs(friendsData[i].scores[j] - userAnswers[j]);
+      }
+      console.log('diff = ' + diff);
+      // if lowest mathematical difference, update friend variables
+      if (diff < totalDiff) {
+        totalDiff = diff;
+        friendName = friendsData[i].name;
+        friendImg = friendsData[i].photo;
+      }
+    }
+    friendsData.push(userData);
+    res.json({status: 'ok', friendName: friendName, friendImg: friendImg});
+  });
+};
