@@ -1,7 +1,7 @@
 // Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
- var path = require("path");
+var path = require("path");
 
 // Sets up the Express App
 // process.env.PORT lets the port be set by Heroku
@@ -12,8 +12,8 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-require(path.join(__dirname, './app/routing/apiRoutes'))(app);
-require(path.join(__dirname, './app/routing/htmlRoutes'))(app);
+require('./app/routing/apiRoutes.js'))(app);
+require('./app/routing/htmlRoutes.js'))(app);
 
 // Starts the server to begin listening / Dynamically Assigned or Static
 // =============================================================
