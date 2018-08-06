@@ -6,12 +6,12 @@ var friendsData = require("../data/friends.js");
 
 //  API GET request will display friendsData when the usser visits the page.
 module.exports = function (app) {
-  app.get("/data/friends", function (req, res) {
+  app.get("/api/friends", function (req, res) {
     res.json(friendsData);
   });
 
   // API POST request submit survey data into our friends.js friendsArray.
-  app.post("/data/friends", function (req, res) {
+  app.post("/api/friends", function (req, res) {
     console.log(here);
     var userData = req.body;
     var userAnswers = userData.scores;
